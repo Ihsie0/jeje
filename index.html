@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 FELICIDADES ÁGUEDA 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pastel: #f7d6f7;
+      --lila: #e3e6fa;
+      --menu-bg: #fff8;
+      --menu-shadow: 0 4px 24px #bfa58a44;
+      --font: 'Comic Sans MS', 'Comic Neue', Arial, sans-serif;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: var(--pastel);
+      font-family: var(--font);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch; /* iOS momentum scroll */
+    }
+    body {
+      background: linear-gradient(135deg, var(--pastel), var(--lila) 100%);
+      transition: background 0.7s;
+    }
+    /* Pantalla de inicio */
+    #pantalla-inicio {
+      position: fixed;
+      z-index: 99999;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #ffe0f7, #e3e6fa 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s;
+    }
+    #pantalla-inicio h1 {
+      font-size: 2.7rem;
+      color: #b94fc6;
+      font-family: var(--font);
+      text-shadow: 0 2px 12px #fff, 0 0 2px #b94fc6;
+      margin-bottom: 1.5em;
+      text-align: center;
+      user-select: none;
+    }
+    #pantalla-inicio img {
+      width: 120px;
+      border-radius: 16px;
+      box-shadow: 0 0 24px #fff6;
+      margin-bottom: 2em;
+    }
+    #pantalla-inicio button {
+      font-size: 2.1rem;
+      padding: 0.7em 2.5em;
+      border-radius: 18px;
+      border: 3px solid #b94fc6;
+      background: #fff;
+      color: #b94fc6;
+      font-family: var(--font);
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 16px #fff0fa;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #fff, 0 0 2px #b94fc6;
+      z-index: 2;
+      position: relative;
+    }
+    #pantalla-inicio button:hover {
+      background: #b94fc6;
+      color: #fff;
+      transform: scale(1.08) rotate(-2deg);
+    }
+    /* Menú y resto igual */
+    .menu-toggle {
+      position: fixed;
+      top: 18px; left: 18px;
+      z-index: 10000;
+      background: var(--menu-bg);
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      box-shadow: var(--menu-shadow);
+      border: 2px solid #b94fc6;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #b94fc6;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .menu-toggle:hover { background: #ffe0f7; }
+    .menu {
+      position: fixed;
+      top: 80px; left: 18px;
+      background: var(--menu-bg);
+      border-radius: 18px;
+      box-shadow: var(--menu-shadow);
+      border: 2px solid #b94fc6;
+      padding: 1.2em 1.5em 1.2em 1.2em;
+      z-index: 10001;
+      min-width: 220px;
+      display: none;
+      flex-direction: column;
+      gap: 1em;
+      font-family: var(--font);
+      animation: menu-in 0.5s;
+    }
+    @keyframes menu-in {
+      0% { opacity: 0; transform: translateY(-30px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .menu a {
+      color: #b94fc6;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-family: var(--font);
+      font-weight: bold;
+      padding: 0.3em 0.7em;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+      display: block;
+    }
+    .menu a:hover {
+      background: #ffe0f7;
+      color: #fff;
+    }
+    .menu label {
+      display: block;
+      margin-top: 0.7em;
+      font-size: 1rem;
+      color: #b94fc6;
+      font-family: var(--font);
+    }
+    .menu select {
+      margin-top: 0.2em;
+      font-family: var(--font);
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #b94fc6;
+      padding: 0.2em 0.5em;
+      background: #fff;
+      color: #b94fc6;
+    }
+    /* Layout central con columnas laterales */
+    .layout-central {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      width: 100vw;
+      margin-top: 3em;
+      margin-bottom: 3em;
+      position: relative;
+      z-index: 2;
+    }
+    .gallery-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      width: 160px;
+      align-items: center;
+      position: relative;
+      animation: scroll-col 12s linear infinite alternate;
+    }
+    .gallery-col.right {
+      animation-direction: reverse;
+    }
+    @keyframes scroll-col {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-40%);}
+    }
+    .polaroid {
+      background: #fffbe7;
+      border: 3px solid #b94fc6;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #b94fc633, 0 0 0 8px #fff inset;
+      padding: 0.7em 0.7em 1.7em 0.7em;
+      width: 140px;
+      text-align: center;
+      font-size: 1rem;
+      font-family: var(--font);
+      color: #b94fc6;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .polaroid img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #b94fc6aa;
+      margin-bottom: 0.5em;
+    }
+    .polaroid .caption {
+      font-size: 0.95rem;
+      margin-top: 0.2em;
+      color: #b94fc6;
+      font-family: var(--font);
+    }
+    .hueco-fotos {
+      width: 140px;
+      height: 140px;
+      background: #ffe0f7;
+      border: 2px dashed #b94fc6;
+      border-radius: 18px;
+      margin: 1em auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b94fc6;
+      font-size: 1.1rem;
+      font-family: var(--font);
+      text-align: center;
+      opacity: 0.7;
+    }
+    /* Sección central */
+    .central-section {
+      flex: 1 1 0;
+      max-width: 600px;
+      margin: 0 2vw;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 0 32px #b94fc644 inset;
+      padding: 2.5em 1.5em 2em 1.5em;
+      font-family: var(--font);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .central-section h2 {
+      color: #b94fc6;
+      font-size: 1.5rem;
+      margin-top: 0;
+      font-family: var(--font);
+      text-shadow: 0 0 8px #fff, 0 0 2px #b94fc6;
+      text-align: center;
+    }
+    /* Test BTS */
+    .bts-quiz {
+      margin: 1.5em 0 0.5em 0;
+      text-align: center;
+    }
+    .bts-quiz label {
+      display: block;
+      margin: 0.7em 0;
+      font-size: 1rem;
+      color: #b94fc6;
+      font-family: var(--font);
+    }
+    .bts-quiz input[type="radio"] {
+      margin-right: 0.5em;
+    }
+    .bts-quiz-result {
+      margin-top: 1em;
+      font-size: 1.1rem;
+      color: #b94fc6;
+      font-family: var(--font);
+      text-shadow: 0 0 8px #fff;
+    }
+    /* Carta animada */
+    .carta-animada {
+      font-size: 1.2rem;
+      color: #b94fc6;
+      font-family: var(--font);
+      background: #fffbe7;
+      border-radius: 18px;
+      border: 2px solid #b94fc6;
+      box-shadow: 0 0 16px #b94fc644;
+      padding: 2em 1.5em;
+      letter-spacing: 1px;
+      line-height: 1.7;
+      min-height: 120px;
+      margin: 2em 0 1em 0;
+      text-align: center;
+      white-space: pre-line;
+    }
+    .mensaje-btn {
+      font-size: 1.2rem;
+      padding: 0.5em 2em;
+      border-radius: 14px;
+      border: 2px solid #b94fc6;
+      background: #fff;
+      color: #b94fc6;
+      font-family: var(--font);
+      font-weight: bold;
+      cursor: pointer;
+      margin: 1.5em auto 0 auto;
+      display: block;
+      box-shadow: 0 0 8px #fff0fa;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #fff, 0 0 2px #b94fc6;
+    }
+    .mensaje-btn:hover {
+      background: #b94fc6;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    /* Botones absurdos flotantes */
+    .crazy-btn {
+      position: fixed;
+      z-index: 9999;
+      font-size: 1.1rem;
+      font-family: var(--font);
+      background: #fff;
+      color: #b94fc6;
+      border: 2px solid #b94fc6;
+      border-radius: 12px;
+      padding: 0.5em 1.2em;
+      box-shadow: 0 0 12px #fff6;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.2s, left 0.3s, top 0.3s, opacity 0.2s;
+      user-select: none;
+      pointer-events: auto;
+      opacity: 0.65; /* Más transparente */
+      touch-action: manipulation;
+    }
+    .crazy-btn:hover {
+      background: #b94fc6;
+      color: #fff;
+      transform: scale(1.1) rotate(-5deg);
+      opacity: 1;
+    }
+    /* Confeti palabras */
+    .falling-word {
+      position: fixed;
+      top: -2em;
+      pointer-events: none;
+      z-index: 99999;
+      animation: fall-word 2.2s linear forwards;
+      white-space: nowrap;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #fff, 0 0 2px #b94fc6;
+    }
+    @keyframes fall-word {
+      0% { top: -2em; opacity: 1;}
+      100% { top: 100vh; opacity: 0;}
+    }
+    /* Stickers y gifs */
+    .sticker {
+      position: absolute;
+      z-index: 100;
+      width: 80px;
+      pointer-events: none;
+      animation: sticker-pop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes sticker-pop {
+      0% { opacity: 0; transform: scale(0.7);}
+      60% { opacity: 1; transform: scale(1.15);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    .footer-msg {
+      margin: 5em auto 2em auto;
+      max-width: 600px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #b94fc6;
+      font-family: var(--font);
+      background: #fffbe7;
+      border-radius: 18px;
+      border: 2px solid #b94fc6;
+      box-shadow: 0 0 16px #b94fc644;
+      padding: 2em 1.5em;
+      letter-spacing: 1px;
+      line-height: 1.7;
+    }
+    .player-box {
+      position: relative;
+      min-width: 180px;
+      max-width: 220px;
+      background: #fffbe7;
+      border: 2px solid #b94fc6;
+      border-radius: 18px;
+      box-shadow: 0 0 16px #b94fc644;
+      padding: 1em 1em 1em 1em;
+      margin-right: 2em;
+      margin-left: 0.5em;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      z-index: 10;
+    }
+    @media (max-width: 900px) {
+      .layout-central { flex-direction: column; align-items: center; }
+      .gallery-col { flex-direction: row; width: 100vw; gap: 1em; animation: none; }
+      .gallery-col.right { margin-top: 2em; }
+      .central-section { margin: 2em 0; }
+      .player-box { margin: 1em auto 2em auto; }
+      .crazy-btn {
+        position: absolute !important; /* Para evitar problemas de botones fijos en iOS */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla de inicio -->
+  <div id="pantalla-inicio">
+    <h1>🎉 FELICIDADES ÁGUEDA 🎉</h1>
+    <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Happy Birthday GIF">
+    <button id="jeje-btn">jeje</button>
+  </div>
+  <!-- Menú desplegable -->
+  <div class="menu-toggle" id="menu-toggle" style="display:none;">☰</div>
+  <nav class="menu" id="menu">
+    <a href="#btsquiz">🎮 Test: ¿Qué BTS eres?</a>
+    <a href="#video">📼 Vídeo sorpresa</a>
+    <a href="#carta">💌 Mensaje &lt;3</a>
+    <a href="#playlist">📻 Mi Playlist para ti</a>
+    <label>Fondo:
+      <select id="bg-select">
+        <option value="rosita">Rosita</option>
+        <option value="lila">Lila</option>
+        <option value="blanco">Blanco</option>
+        <option value="oscuro">Oscuro</option>
+      </select>
+    </label>
+    <label>Letra:
+      <select id="font-select">
+        <option value="Comic Sans MS">Comic Sans</option>
+        <option value="Arial">Arial</option>
+        <option value="Impact">Impact</option>
+        <option value="Courier New">Courier</option>
+      </select>
+    </label>
+  </nav>
+  <!-- Layout central con columnas laterales de fotos -->
+  <div class="layout-central" id="main-content" style="display:none;">
+    <!-- Reproductor de audio -->
+    <div class="player-box" id="player-box">
+      <h3 style="margin:0 0 0.5em 0; color:#b94fc6; font-family:var(--font); font-size:1.1em;">🎵 Canción actual</h3>
+      <div id="song-title" style="font-weight:bold; color:#6e5cff; margin-bottom:0.5em;">(elige una canción)</div>
+      <button id="prev-song" style="margin:0.2em 0.5em 0.2em 0; border-radius:8px;">⏮️</button>
+      <button id="next-song" style="margin:0.2em 0 0.2em 0.5em; border-radius:8px;">⏭️</button>
+      <audio id="audio-player" controls playsinline style="width:100%;margin-top:0.7em;">
+        <source id="audio-source" src="" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+      </audio>
+    </div>
+    <!-- LADO IZQUIERDO: 2 columnas de fotos -->
+    <div style="display:flex; flex-direction:column; gap:2em;">
+      <div class="gallery-col left">
+        <div class="polaroid">
+          <img src="https://i.imgur.com/1Q9Z1Zm.jpg" alt="Foto 1">
+          <div class="caption">Teror 2022</div>
+        </div>
+        <div class="hueco-fotos">Aquí puedes añadir una foto</div>
+        <div class="polaroid">
+          <img src="https://i.imgur.com/4AiXzf8.jpg" alt="Foto 3">
+          <div class="caption">Cumpleaños</div>
+        </div>
+        <div class="hueco-fotos">Aquí puedes añadir otra foto</div>
+      </div>
+      <div class="gallery-col left">
+        <div class="polaroid">
+          <img src="https://i.imgur.com/6b6psnA.jpg" alt="Foto 5">
+          <div class="caption">Fiesta</div>
+        </div>
+        <div class="hueco-fotos">Pon aquí tu mejor selfie</div>
+        <div class="polaroid">
+          <img src="https://i.imgur.com/3GvwNBf.jpg" alt="Foto 6">
+          <div class="caption">Viaje</div>
+        </div>
+        <div class="hueco-fotos">¡Otra más aquí!</div>
+      </div>
+    </div>
+    <!-- CENTRO -->
+    <div class="central-section">
+      <section id="btsquiz">
+        <h2>🎮 Test: ¿Qué BTS eres?</h2>
+        <form class="bts-quiz" id="bts-quiz">
+          <label><input type="radio" name="bts" value="RM">Me gusta leer y liderar</label>
+          <label><input type="radio" name="bts" value="Jin">Me encanta comer y bromear</label>
+          <label><input type="radio" name="bts" value="Suga">Prefiero estar tranquilo y componer</label>
+          <label><input type="radio" name="bts" value="J-Hope">Siempre bailando y animando</label>
+          <label><input type="radio" name="bts" value="Jimin">Soy tierno y me preocupo por los demás</label>
+          <label><input type="radio" name="bts" value="V">Soy raro y artístico</label>
+          <label><input type="radio" name="bts" value="Jungkook">¡Puedo hacerlo todo!</label>
+          <button type="submit" class="jeje-btn" style="font-size:1rem;padding:0.3em 1.2em;margin-top:1em;">Ver resultado</button>
+        </form>
+        <div class="bts-quiz-result" id="bts-quiz-result"></div>
+      </section>
+      <section id="video" style="display:none;">
+        <h2>📼 Vídeo sorpresa</h2>
+        <div class="video-placeholder">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/9bZkp7q19f0?autoplay=0" title="Vídeo sorpresa" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+      <section id="carta" style="display:none;">
+        <h2>💌 Mensaje especial</h2>
+        <button class="mensaje-btn" id="mensaje-btn">Mensaje &lt;3</button>
+        <div class="carta-animada" id="carta-animada"></div>
+      </section>
+      <section id="playlist" style="display:none;">
+        <h2>📻 Mi Playlist para ti</h2>
+        <iframe style="border-radius:16px;width:100%;min-height:120px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6VdMW310YC7?utm_source=generator" width="100%" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+      </section>
+      <div class="footer-msg" id="footer-msg"></div>
+    </div>
+    <!-- LADO DERECHO: 2 columnas de fotos -->
+    <div style="display:flex; flex-direction:column; gap:2em;">
+      <div class="gallery-col right">
+        <div class="polaroid">
+          <img src="https://i.imgur.com/2nCt3Sbl.jpg" alt="Foto 2">
+          <div class="caption">Kpop Party</div>
+        </div>
+        <div class="hueco-fotos">Súbeme una foto bonita</div>
+        <div class="polaroid">
+          <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Foto 4">
+          <div class="caption">Selfie VHS</div>
+        </div>
+        <div class="hueco-fotos">¡Otra más aquí!</div>
+      </div>
+      <div class="gallery-col right">
+        <div class="polaroid">
+          <img src="https://i.imgur.com/8Qf6Q7F.jpg" alt="Foto 7">
+          <div class="caption">Locura</div>
+        </div>
+        <div class="hueco-fotos">¡Pon aquí tu foto favorita!</div>
+        <div class="polaroid">
+          <img src="https://i.imgur.com/9g7yQbF.jpg" alt="Foto 8">
+          <div class="caption">Recuerdo</div>
+        </div>
+        <div class="hueco-fotos">¡Otra más aquí!</div>
+      </div>
+    </div>
+  </div>
+  <!-- Gifs y stickers decorativos -->
+  <img class="sticker" style="top:10px;right:10px;" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Happy Birthday">
+  <img class="sticker" style="bottom:20px;left:10px;" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Corazón">
+  <img class="sticker" style="bottom:40px;right:30px;" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Kpop">
+  <script>
+    // --- Confeti de palabras ---
+    const palabras = [
+      "Feliz cumpleaños", "Happy Birthday", "생일 축하해요", "축하합니다", "축하해", "お誕生日おめでとう", "Joyeux anniversaire", "Alles Gute!",
+      "祝你生日快乐", "Parabéns", "Auguri!", "Поздравляю", "Chúc mừng sinh nhật", "BTS", "사랑해", "Águeda", "Queen", "Kpop", "ARMY",
+      "사랑해요", "사랑합니다", "귀엽다", "귀여워", "귀여운", "귀여운 아게다", "Unicornio", "Party", "Cake", "💜", "💖", "🎂", "🎉", "🥳",
+      // Mensajes de amor y fallos
+      "te quiero", "te quier", "te quierooo", "te quie", "te q", "t", "",
+      "no sé escribirlo", "me trabé", "ups", "otra vez", "¡te quiero!", "¿cómo era?", "ay", "me equivoqué", "¡por fin!", "te quiero mucho",
+      "¡lo intento!", "¡fallo!", "otra vez...", "¡te amo!", "¡Águeda!", "¡feliz día!", "¡besos!", "¡abrazo!", "¡eres genial!", "¡sonríe!",
+      "¡hoy es tu día!", "¡disfruta!", "¡te mereces todo!", "¡qué guapa!", "¡qué arte!", "¡qué risa!", "¡qué mona!", "¡qué crack!", "¡qué reina!",
+      // Frases nuevas pedidas
+      "sunorma", "seme", "uke", "baila papafrita", "masajeame las tetas", "tienes puntos negros", "SUAVE!!!!",
+      "te amo cuchiflon", "1er comentario", "jajjaj xdd", "vieja..."
+    ];
+    function lanzarPalabra() {
+      const word = palabras[Math.floor(Math.random()*palabras.length)];
+      const span = document.createElement('span');
+      span.className = 'falling-word';
+      span.textContent = word;
+      span.style.left = (Math.random()*90+2) + 'vw';
+      span.style.fontSize = (1.2 + Math.random()*1.5) + 'rem';
+      span.style.color = ['#b94fc6','#ff80bf','#6e5cff','#ffb6b6','#ffb347','#3e2723','#e91e63','#7c43bd'][Math.floor(Math.random()*8)];
+      document.body.appendChild(span);
+      setTimeout(()=>span.remove(), 2200);
+    }
+    let confettiInterval = setInterval(lanzarPalabra, 250);
+
+    // --- Botón jeje: activa la web principal ---
+    document.getElementById('jeje-btn').onclick = function() {
+      document.getElementById('pantalla-inicio').style.opacity = "0";
+      setTimeout(()=>{
+        document.getElementById('pantalla-inicio').style.display = "none";
+        document.getElementById('menu-toggle').style.display = "";
+        document.getElementById('main-content').style.display = "flex";
+        // Mostrar solo la primera sección central y footer
+        mostrarSeccion('btsquiz');
+      }, 700);
+    };
+
+    // --- Menú desplegable ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    menuToggle.onclick = () => menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    document.body.onclick = e => {
+      if (!menu.contains(e.target) && e.target !== menuToggle) menu.style.display = "none";
+    };
+
+    // --- Cambios de fondo y letra ---
+    document.getElementById('bg-select').onchange = function() {
+      let v = this.value;
+      if(v==="rosita") document.body.style.background = "linear-gradient(135deg,#ffe0f7,#fffbe7 100%)";
+      if(v==="lila") document.body.style.background = "linear-gradient(135deg,#e3e6fa,#fffbe7 100%)";
+      if(v==="blanco") document.body.style.background = "#fffbe7";
+      if(v==="oscuro") document.body.style.background = "#181818";
+    };
+    document.getElementById('font-select').onchange = function() {
+      document.body.style.fontFamily = this.value+",Comic Sans MS,Arial,sans-serif";
+      document.querySelectorAll('*').forEach(el=>el.style.fontFamily=this.value+",Comic Sans MS,Arial,sans-serif");
+    };
+
+    // --- Botones absurdos flotantes que se mueven más lentos ---
+    const frasesBtns = [
+      "no me toques peruana","jungkook desnudo","maspalomas mami","tetas","hueles a huevo frito",
+      "devuélveme mi cámara","lameme el pie de nuevo, porfa","hola en coreano","tienes caca en los dedos",
+      "yass queen","nunca olvidaste subir las fotos de Teror"
+    ];
+    function randomPosBtn(btn) {
+      const w = window.innerWidth - btn.offsetWidth;
+      const h = window.innerHeight - btn.offsetHeight;
+      return {
+        top: Math.random() * h + "px",
+        left: Math.random() * w + "px"
+      };
+    }
+    function moverBtn(btn) {
+      const pos = randomPosBtn(btn);
+      btn.style.top = pos.top;
+      btn.style.left = pos.left;
+    }
+    function animarBtn(btn) {
+      setInterval(() => moverBtn(btn), 3500 + Math.random()*2000); // más lento
+    }
+    function crearBtnAbsurdos() {
+      for(let frase of frasesBtns) {
+        const btn = document.createElement('button');
+        btn.className = "crazy-btn";
+        btn.textContent = frase;
+        moverBtn(btn);
+        animarBtn(btn);
+        btn.onmouseenter = () => moverBtn(btn);
+        btn.onmousemove = () => moverBtn(btn);
+        btn.onclick = e => {
+          e.stopPropagation();
+          moverBtn(btn);
+          // Efectos absurdos
+          if(frase.includes("jungkook")) mostrarSticker("https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif");
+          else if(frase.includes("tetas")) mostrarSticker("https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif");
+          else if(frase.includes("caca")) alert("🤢 ¡Guácala!");
+          else if(frase.includes("devuélveme")) mostrarMsgEmergente("te odio pero feliz cumple");
+          else if(frase.includes("pie")) new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b5e2e.mp3").play();
+          else if(frase.includes("yass")) mostrarSticker("https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif");
+          else if(frase.includes("peruana")) new Audio("https://cdn.pixabay.com/audio/2022/10/16/audio_12b5e6b4e7.mp3").play();
+          else if(frase.includes("hola")) mostrarMsgEmergente("안녕하세요! (Annyeonghaseyo!)");
+          else if(frase.includes("maspalomas")) mostrarSticker("https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif");
+          else if(frase.includes("huevo")) mostrarMsgEmergente("¡Ponte desodorante!");
+          else mostrarSticker("https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif");
+        };
+        document.body.appendChild(btn);
+      }
+    }
+    crearBtnAbsurdos();
+
+    // --- Navegación de secciones ---
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.central-section > section').forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "";
+      document.getElementById('footer-msg').style.display = "";
+      menu.style.display = "none";
+    }
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.onclick = function(e) {
+        e.preventDefault();
+        mostrarSeccion(this.getAttribute('href').replace('#',''));
+      };
+    });
+
+    // --- Test BTS ---
+    document.getElementById('bts-quiz').onsubmit = function(e) {
+      e.preventDefault();
+      const val = this.bts.value;
+      let res = "";
+      switch(val) {
+        case "RM": res = "¡Eres RM! Líder, sabio y con Namjoon power 💜"; break;
+        case "Jin": res = "¡Eres Jin! El Worldwide Handsome y chef del grupo 🍜"; break;
+        case "Suga": res = "¡Eres Suga! Misterioso, creativo y dormilón 😴"; break;
+        case "J-Hope": res = "¡Eres J-Hope! Energía y alegría pura 🌞"; break;
+        case "Jimin": res = "¡Eres Jimin! Dulzura y ternura máxima 🐥"; break;
+        case "V": res = "¡Eres V! Artístico, raro y adorable 🐯"; break;
+        case "Jungkook": res = "¡Eres Jungkook! Golden maknae, puedes con todo 🐰"; break;
+        default: res = "¡Eres ARMY!"; break;
+      }
+      document.getElementById('bts-quiz-result').textContent = res;
+    };
+
+    // --- Carta animada ---
+    const cartaTexto = `Puede que esta web sea un caos, pero fue hecha con todo el cariño del mundo.
+Feliz cumpleaños, Águeda. Nunca cambies (aunque sí sube las fotos de Teror, por favor).`;
+    document.getElementById('mensaje-btn').onclick = function() {
+      const carta = document.getElementById('carta-animada');
+      carta.textContent = "";
+      let i = 0;
+      function escribir() {
+        if(i <= cartaTexto.length) {
+          carta.textContent = cartaTexto.slice(0, i);
+          i++;
+          setTimeout(escribir, 35);
+        }
+      }
+      escribir();
+    };
+
+    // --- Stickers y mensajes emergentes ---
+    function mostrarSticker(url) {
+      const img = document.createElement('img');
+      img.src = url;
+      img.className = "sticker";
+      img.style.top = (Math.random()*80+5)+"vh";
+      img.style.left = (Math.random()*80+5)+"vw";
+      document.body.appendChild(img);
+      setTimeout(()=>img.remove(), 2200);
+    }
+    function mostrarMsgEmergente(msg) {
+      const div = document.createElement('div');
+      div.textContent = msg;
+      div.style.position = "fixed";
+      div.style.top = (Math.random()*80+5)+"vh";
+      div.style.left = (Math.random()*80+5)+"vw";
+      div.style.background = "#fffbe7";
+      div.style.color = "#b94fc6";
+      div.style.fontFamily = "var(--font)";
+      div.style.fontSize = "1.3rem";
+      div.style.padding = "1em 2em";
+      div.style.borderRadius = "18px";
+      div.style.boxShadow = "0 0 24px #b94fc6aa";
+      div.style.zIndex = 10000;
+      div.style.textAlign = "center";
+      div.style.animation = "sticker-pop 1.2s cubic-bezier(.68,-0.55,.27,1.55)";
+      document.body.appendChild(div);
+      setTimeout(()=>div.remove(), 2200);
+    }
+
+    // --- Footer animado: frases random y "te quiero" reescribiéndose ---
+    const footer = document.getElementById('footer-msg');
+    const partesFooter = [
+      // "te quiero" y variantes
+      ["t", "te", "te q", "te qu", "te qui", "te quie", "te quier", "te quiero", "te quier", "te quie", "te qui", "te q", "t", ""],
+      // insultos y locuras
+      ["coñ", "coñe", "coñet", "coñete", "coñete", "coñete", "coñete", "coñete", "coñete", "coñete", ""],
+      ["coj", "cojo", "cojon", "cojone", "cojones", "cojones", "cojones", ""],
+      ["me s", "me su", "me sud", "me suda", "me suda ", "me suda e", "me suda el", "me suda el c", "me suda el cu", "me suda el cul", "me suda el culo", ""],
+      ["te o", "te od", "te odio", "te odio", "te odio", ""],
+      ["no sé", "no se", "no se escribir", "no se escribir esto", ""],
+      ["ups", "otra vez", "me equivoqué", "ay", ""],
+      ["jaj", "jaja", "jajaj", "jajaja", "jajaj xd", "jajjaj xdd", ""],
+      ["vie", "vieja", "vieja...", ""],
+      ["sunorma", ""],
+      ["baila papafrita", ""],
+      ["masajeame las t", "masajeame las te", "masajeame las tet", "masajeame las tetas", ""],
+      ["seme", ""],
+      ["uke", ""],
+      ["tienes puntos negros", ""],
+      ["SUAVE!!!!", ""],
+      ["te amo cuchiflon", ""],
+      ["1er comentario", ""]
+    ];
+    let actualSecuencia = [];
+    let actualIndex = 0;
+    function nuevaSecuencia() {
+      actualSecuencia = partesFooter[Math.floor(Math.random() * partesFooter.length)];
+      actualIndex = 0;
+    }
+    function animarFooter() {
+      if (actualIndex >= actualSecuencia.length) {
+        nuevaSecuencia();
+      }
+      footer.innerHTML = `<span style="font-size:1.5em;color:#b94fc6;font-weight:bold;">${actualSecuencia[actualIndex]}</span>`;
+      actualIndex++;
+      setTimeout(animarFooter, 120); // Más lento, ritmo de escritura humana
+    }
+    nuevaSecuencia();
+    animarFooter();
+
+    // --- Reproductor de audio ---
+    const canciones = [
+      { titulo: "Canción 1", url: "" },
+      { titulo: "Canción 2", url: "" },
+      { titulo: "Canción 3", url: "" }
+    ];
+    let cancionActual = 0;
+    const audio = document.getElementById('audio-player');
+    const audioSource = document.getElementById('audio-source');
+    const songTitle = document.getElementById('song-title');
+    function cargarCancion(idx) {
+      if (!canciones[idx].url) {
+        audio.pause();
+        audioSource.src = "";
+        audio.load();
+        songTitle.textContent = canciones[idx].titulo + " (sin audio)";
+      } else {
+        audioSource.src = canciones[idx].url;
+        audio.load();
+        songTitle.textContent = canciones[idx].titulo;
+        // Solo reproducir si no es iOS (iOS requiere interacción de usuario)
+        if (!/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+          audio.play();
+        }
+      }
+    }
+    document.getElementById('prev-song').onclick = function() {
+      cancionActual = (cancionActual - 1 + canciones.length) % canciones.length;
+      cargarCancion(cancionActual);
+    };
+    document.getElementById('next-song').onclick = function() {
+      cancionActual = (cancionActual + 1) % canciones.length;
+      cargarCancion(cancionActual);
+    };
+    // Inicializa con la primera canción
+    cargarCancion(cancionActual);
+  </script>
+</body>
+</html>
